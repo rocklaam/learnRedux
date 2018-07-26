@@ -5,19 +5,21 @@ import { configureStore } from './store';
 import * as actions from './actions';
 import TrackList from './components/TrackList';
 
-const tracks = [
-    {
-        id: 1,
-        title: 'Em của ngày hôm qua'
-    },
-    {
-        id: 2,
-        title: 'Cơn mưa ngang qua'
-    }
-];
+const initialState = {
+    tracks: [
+        {
+            id: 1,
+            title: 'Em của ngày hôm qua'
+        },
+        {
+            id: 2,
+            title: 'Cơn mưa ngang qua'
+        }
+    ]
+};
 
-const store = configureStore();
-store.dispatch(actions.setTracks(tracks));
+const store = configureStore(initialState);
+store.dispatch(actions.setTracks(initialState.tracks));
 
 ReactDOM.render(
     <Provider store={store}>
